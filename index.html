@@ -3,45 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+
     <title>Weather-App</title>
   </head>
   <body>
-    <header>
-      <form>
-        <input
-          type="text"
-          placeholder="Place, Postal Code..."
-          required
-          id="searchBar"
-        />
-        <input type="submit" value="Search" id="submit" />
-      </form>
-    </header>
-    <main>
-      <h1>Klagenfurt</h1>
-      <p>
-        Wednesday, 07.05.2025 20:00 <br />
-        Feels like 19°C <br />
-        High 21°C | Low 10°C
-      </p>
-      Clear <br />
-      ☀️ 17°C
-    </main>
-    <footer>
-      Coded by
-      <a
-        href="https://www.linkedin.com/in/marina-ortner-9b2816236/"
-        target="_blank"
-        >Marina Ortner</a
-      >
-      code hosted on
-      <a href="https://github.com/Marina-foodie" target="_blank">Github</a>
-      and website published on
-      <a
-        href="https://app.netlify.com/teams/marina-foodie/sites"
-        target="_blank"
-        >Netlify</a
-      >
-    </footer>
+    <div class="Weather-App">
+      <header>
+        <form>
+          <input
+            type="text"
+            placeholder="Place, Postal Code..."
+            required
+            id="searchBar"
+          />
+          <input type="submit" value="Search" id="submit" />
+        </form>
+      </header>
+      <main>
+        <div>
+          <h1>Klagenfurt</h1>
+          <p>
+            Wednesday, 07.05.2025 20:00 <br />
+            Feels like 19°C <br />
+            High 21°C | Low 10°C
+          </p>
+        </div>
+        <div>
+          Clear <br />
+          ☀️ 17°C
+        </div>
+      </main>
+      <footer>
+        This project was coded by
+        <a
+          href="https://www.linkedin.com/in/marina-ortner-9b2816236/"
+          target="_blank"
+          >Marina Ortner</a
+        >
+        is open-sourced on
+        <a href="https://github.com/Marina-foodie" target="_blank">Github</a>
+        and hosted on
+        <a
+          href="https://app.netlify.com/teams/marina-foodie/sites"
+          target="_blank"
+          >Netlify</a
+        >
+      </footer>
+    </div>
   </body>
 </html>

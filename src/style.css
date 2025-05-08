@@ -1,0 +1,16 @@
+body {
+  background: linear-gradient(to left, #cfd9df 0%, #e2ebf0 100%);
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.Weather-App {
+  background-color: white;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+  border-radius: 20px;
+}
