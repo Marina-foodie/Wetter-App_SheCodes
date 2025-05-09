@@ -6,13 +6,10 @@
     <link rel="stylesheet" href="src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/style.css" />
 
     <title>Weather-App</title>
   </head>
@@ -24,23 +21,30 @@
             type="text"
             placeholder="Place, Postal Code..."
             required
-            id="searchBar"
+            id="searchbar"
           />
           <input type="submit" value="Search" id="submit" />
         </form>
       </header>
       <main>
-        <div>
-          <h1>Klagenfurt</h1>
-          <p>
-            Wednesday, 07.05.2025 20:00 <br />
-            Feels like 19°C <br />
-            High 21°C | Low 10°C
-          </p>
-        </div>
-        <div>
-          Clear <br />
-          ☀️ 17°C
+        <div class="weather-state">Clear</div>
+        <div class="weather-data">
+          <div>
+            <h1>Klagenfurt</h1>
+
+            <p class="weather-details">
+              Wednesday, 07.05.2025 20:00 <br />
+              Feels like <strong>19°C</strong> <br />
+              High <strong>21°C</strong> <strong>|</strong> Low
+              <strong>10°C</strong>
+            </p>
+          </div>
+
+          <div class="weather-container">
+            <div class="weather-icon">☀️</div>
+            <div class="weather-temperature">17</div>
+            <div class="weather-unit">°C</div>
+          </div>
         </div>
       </main>
       <footer>
