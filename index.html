@@ -10,16 +10,16 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
-
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <title>Weather-App</title>
   </head>
   <body>
     <div class="Weather-App">
       <header>
-        <form>
+        <form class="search-from" id="search-form">
           <input
             type="text"
-            placeholder="Place, Postal Code..."
+            placeholder="City..."
             required
             id="searchbar"
           />
@@ -27,10 +27,9 @@
         </form>
       </header>
       <main>
-        <div class="weather-state">Clear</div>
         <div class="weather-data">
           <div>
-            <h1>Klagenfurt</h1>
+            <h1 id="city">Klagenfurt</h1>
 
             <p class="weather-details">
               Wednesday, 07.05.2025 20:00 <br />
@@ -42,6 +41,7 @@
 
           <div class="weather-container">
             <div class="weather-icon">☀️</div>
+            <div class="weather-state">Clear</div>
             <div class="weather-temperature">17</div>
             <div class="weather-unit">°C</div>
           </div>
@@ -64,5 +64,5 @@
         >
       </footer>
     </div>
-  </body>
+    <script src="src/index.js"></script>
 </html>
