@@ -16,28 +16,30 @@
   <body>
     <div class="Weather-App">
       <header>
-        <form class="search-from" id="search-form">
+        <form class="search-form" id="search-form">
           <input type="text" placeholder="City..." required id="searchbar" />
           <input type="submit" value="Search" id="submit" />
         </form>
       </header>
       <main>
+        <div class="weather-date" id="weather-date"></div>
         <div class="weather-data">
           <div>
-            <h1 id="city">Klagenfurt</h1>
+            <h1 id="city"></h1>
 
             <p class="weather-details">
-              Wednesday, 07.05.2025 20:00 <br />
-              Feels like <strong>19°C</strong> <br />
-              High <strong>21°C</strong> <strong>|</strong> Low
-              <strong>10°C</strong>
+              Feels like <strong id="feels-like"></strong> <br />
+              High <strong id="high"></strong> <strong>|</strong> Low
+              <strong id="low"></strong><br />
+              Humidity <strong id="humidity"></strong> <br />
+              Wind speed <strong id="wind"></strong>
             </p>
           </div>
 
           <div class="weather-container">
-            <div class="weather-icon">☀️</div>
-            <div class="weather-state">Clear</div>
-            <div class="weather-temperature" id="weather-temperature">17</div>
+            <div class="weather-icon" id="icon"></div>
+            <div class="weather-state" id="weather-state"></div>
+            <div class="weather-temperature" id="weather-temperature">20</div>
             <div class="weather-unit">°C</div>
           </div>
         </div>
