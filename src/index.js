@@ -71,11 +71,19 @@ function updateWeather(response) {
 
   let iconElement = document.querySelector("#icon");
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url} "class="weather-icon"/>`;
+
+  getForecast(response.data.city);
 }
 
 searchCity("St.Gallen");
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "cf40cbba3b587f08e75d7ob82t7ad6ff";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -96,5 +104,3 @@ function displayForecast() {
 
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
