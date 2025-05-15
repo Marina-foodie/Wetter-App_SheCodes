@@ -51,14 +51,6 @@ function updateWeather(response) {
   let feelsLike = response.data.temperature.feels_like;
   feelsLikeElement.innerHTML = `${Math.round(feelsLike)} °C`;
 
-  let highElement = document.querySelector("#high");
-  let high = response.data.temperature.maximum;
-  highElement.innerHTML = `${Math.round(high)} °C`;
-
-  let lowElement = document.querySelector("#low");
-  let low = response.data.temperature.minimum;
-  lowElement.innerHTML = `${Math.round(low)} °C`;
-
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${response.data.temperature.humidity} %`;
 
@@ -75,31 +67,56 @@ function updateWeather(response) {
   getForecast(response.data.city);
 }
 
+function updateHighLow(dayData) {
+  let highElement = document.querySelector("#high");
+  let lowElement = document.querySelector("#low");
+  highElement.innerHTML = `${Math.round(dayData.temperature.maximum)} °C`;
+  lowElement.innerHTML = `${Math.round(dayData.temperature.minimum)} °C`;
+}
+
 searchCity("St.Gallen");
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
 
 function getForecast(city) {
   let apiKey = "cf40cbba3b587f08e75d7ob82t7ad6ff";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then((response) => {
+    let todayData = response.data.daily[0];
+    updateHighLow(todayData);
+    displayForecast(response);
+  });
 }
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="weather-forecast-day">
-            <div class="weather-forecast-date">${day}</div>
-            <div class="weather-forecast-icon">☀️</div>
+            <div class="weather-forecast-date">${formatDate(day.time)}</div>
+            <div class="weather-forecast-icon"><img src="${
+              day.condition.icon_url
+            }"/></div>
             <div class="weather-forecast-temperatures">
-              <div class="weather-forecast-high"><strong>15°C </strong></div>
-              <div class="weather-forecast-low"><strong> | 9°C</strong></div>
+              <div class="weather-forecast-high"><strong>${Math.round(
+                day.temperature.maximum
+              )}°C </strong></div>
+              <div class="weather-forecast-low"> | ${Math.round(
+                day.temperature.minimum
+              )}°C</div>
             </div>
           </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
